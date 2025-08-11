@@ -14,20 +14,26 @@ const CreateTask = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        
-        setNewTask({taskTitle, taskDescription, taskDate, category, isActive:false, isNew:true, isFailed:false, isCompleted:false})
+        const taskToAdd = { taskTitle, taskDescription, taskDate, category, isActive:false, isNew:true, isFailed:false, isCompleted:false }
+        setNewTask(taskToAdd)
 
-        const data = userData
-
-        data.forEach(function(elem){
-            if(assignTo == elem.firstName){
-                elem.tasks.push(newTask)
-                elem.taskCount.isNew = elem.taskCount.isNew + 1
-                
+        let assigned = false
+        const updated = userData.map((employeeItem) => {
+            if(assignTo === employeeItem.firstName){
+                const updatedTasks = [...employeeItem.tasks, taskToAdd]
+                const current = employeeItem.taskSummary || { isNew: 0, isActive: 0, isCompleted: 0, isFailed: 0 }
+                const updatedSummary = { ...current, isNew: current.isNew + 1 }
+                assigned = true
+                return { ...employeeItem, tasks: updatedTasks, taskSummary: updatedSummary }
             }
+            return employeeItem
         })
-        setUserData(data)
-        console.log(data);
+        setUserData(updated)
+        if(assigned){
+            alert('New task created successfully')
+        } else {
+            alert('Employee not found. Please check the name in Assign To.')
+        }
         
 
         setTaskTitle('')

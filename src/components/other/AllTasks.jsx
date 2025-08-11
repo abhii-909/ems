@@ -18,10 +18,10 @@ const AllTasks = () => {
           {Array.isArray(userData) && userData.map((elem, idx) => (
             <div key={idx} className='border-2 border-emerald-500 mb-2 py-2 px-4 flex justify-between rounded'>
             <h2 className='text-lg font-medium w-1/5'>{elem.firstName}</h2>
-            <h3 className='text-lg font-medium w-1/5 text-blue-400'>{elem.taskCount.isNew}</h3>
-            <h5 className='text-lg font-medium w-1/5 text-yellow-400'>{elem.taskCount.isActive}</h5>
-            <h5 className='text-lg font-medium w-1/5 text-white'>{elem.taskCount.isCompleted}</h5>
-            <h5 className='text-lg font-medium w-1/5 text-red-600'>{elem.taskCount.isFailed}</h5>
+            <h3 className='text-lg font-medium w-1/5 text-blue-400'>{elem.taskSummary.isNew}</h3>
+            <h5 className='text-lg font-medium w-1/5 text-yellow-400'>{elem.taskSummary.isActive}</h5>
+            <h5 className='text-lg font-medium w-1/5 text-white'>{elem.taskSummary.isCompleted}</h5>
+            <h5 className='text-lg font-medium w-1/5 text-red-600'>{elem.taskSummary.isFailed}</h5>
         </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewTask = ({data}) => {
+const NewTask = ({data, onAccept}) => {
   return (
     <div className='flex-shrink-0 h-full w-[350px] p-5 bg-green-400 rounded-xl '>
 
@@ -13,7 +13,7 @@ const NewTask = ({data}) => {
                 {data.taskDescription}
             </p>
             <div className='mt-6 flex justify-center'>
-                <button className='w-50 bg-blue-500 hover:bg-blue-700 text-white rounded-lg font-semibold py-1 px-2 shadow-md hover:shadow-lg transition-all duration-200 ease-in-out'>Accept Task</button>
+                <button onClick={onAccept} className='w-50 bg-blue-500 hover:bg-blue-700 text-white rounded-lg font-semibold py-1 px-2 shadow-md hover:shadow-lg transition-all duration-200 ease-in-out'>Accept Task</button>
             </div>
 
         </div>

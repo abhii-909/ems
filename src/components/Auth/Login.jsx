@@ -9,8 +9,6 @@ const Login = ({ handleLogin }) => {
     const submitHandler = (e)=>{
         e.preventDefault()
         handleLogin(email, password)
-        console.log("email is ", email)
-        console.log("password is ", password)
 
         setEmail("")
         setPassword("")
@@ -42,7 +40,7 @@ const Login = ({ handleLogin }) => {
                 className='outline-none bg-transparent border-2 border-emerald-600 text-xl py-4 px-3 rounded-full mt-3 placeholder:text-gray-400' type="password" placeholder='Enter password' 
                 />
                 
-                <button className='mt-5 text-white border-none outline-none bg-emerald-600 text-xl py-4 px-3 rounded-full placeholder:text-white w-full'>Login</button>
+                <button className='mt-5 text-white border-none outline-none bg-emerald-600 text-xl py-4 px-3 rounded-full placeholder:text-white w-full'>Log in</button>
             </form>
         </div>
     </div>
